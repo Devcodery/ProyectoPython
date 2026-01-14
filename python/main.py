@@ -1,12 +1,19 @@
 import curses # Importa la biblioteca curses para manejo de interfaces de texto
+from os import terminal_size
 from pathlib import Path
 import subprocess
 from time import sleep
+import json
 
 def opcion1():
+    # 1. Limpiar la pantalla
     strcreen.clear()
-    strcreen.addstr("Has seleccionado la Opción 1\n")
-    strcreen.addnstr("Presiona cualquier tecla para volver al menú", 50)
+    
+    datos = json.load(open("../ejemploJSON/datos.json"))
+    nombre = datos["nombre"]
+    edad = datos["edad"]
+    strcreen.addstr(0,0, "El nombre es: " + nombre)
+    strcreen.addstr(1,0, "La edad es: " + str(edad))
     strcreen.getch()
 
 def opcion2():
