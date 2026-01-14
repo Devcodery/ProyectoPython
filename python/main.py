@@ -15,6 +15,9 @@ def opcion1():
     strcreen.addstr(0,0, "El nombre es: " + nombre)
     strcreen.addstr(1,0, "La edad es: " + str(edad))
     strcreen.getch()
+    
+    curses.endwin()
+    retorno = subprocess.run(["bash", "../bash/pedirDatos.sh", str(nombre), str(edad)])
 
 def opcion2():
     strcreen.clear()
