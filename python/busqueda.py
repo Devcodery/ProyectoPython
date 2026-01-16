@@ -1,10 +1,10 @@
 import json
 from pathlib import Path
 
-ruta = Path.cwd() / "tienda"
+ruta = Path.parents()
 
 print(f"ruta: {ruta}")
 
-for archivo in ruta.glob("*.json"):
+for archivo in ruta.rglob("*.json"):
     print(f"Archivo: {archivo}")
    
