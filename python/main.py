@@ -34,7 +34,7 @@ def opcion3():
 def listar():
     strcreen.clear()
     strcreen.addstr("Has seleccionado Listar\n")
-    PATH = Path.home() / "Descargas/tienda"
+    PATH = Path("../ejemploJSON/").resolve()
     
     path = PATH
     
@@ -44,12 +44,14 @@ def listar():
     while salirBucle:
         
         strcreen.clear()
-        elementos = [path.parent] + sorted(path.iterdir())
+        elementos = sorted(e for e in path.iterdir())
+        
+        opciones = ["Volver"] + elementos
         
         if elementos[0].name == "Descargas":
             elementos.remove(elementos[0])
             
-        for i, elemento in enumerate(elementos):
+        for i, elemento in enumerate(opciones):
             elemento1 = elemento.name
             
             if elemento == path.parent:
